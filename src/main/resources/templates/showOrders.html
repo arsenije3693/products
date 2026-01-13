@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${title}"></h1>
+
+    <ul class="list-group mb-3">
+        <li class="list-group-item">Id: <span th:text="${order.id}"></span></li>
+        <li class="list-group-item">Order Number: <span th:text="${order.order_number}"></span></li>
+        <li class="list-group-item">Product Name: <span th:text="${order.product_name}"></span></li>
+        <li class="list-group-item">Price: <span th:text="${order.price}"></span></li>
+        <li class="list-group-item">Qty: <span th:text="${order.quantity}"></span></li>
+    </ul>
+
+    <a class="btn btn-primary" th:href="@{/orders/editOrder/{id}(id=${order.id})}">Edit</a>
+    <a class="btn btn-danger" th:href="@{/orders/deleteOrder/{id}(id=${order.id})}">Delete</a>
+    <a class="btn btn-secondary" th:href="@{/orders}">Show All</a>
+</div>
+</body>
+</html>

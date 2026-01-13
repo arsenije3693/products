@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${title}"></h1>
+
+    <form method="post" th:action="@{/orders/processNewOrder}" th:object="${order}">
+        <!-- NO ID FIELD ON NEW ORDER -->
+
+        <div class="mb-3">
+            <label class="form-label">Order Number</label>
+            <input type="text" class="form-control" th:field="*{order_number}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Product Name</label>
+            <input type="text" class="form-control" th:field="*{product_name}" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" th:field="*{price}" step="0.01" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control" th:field="*{quantity}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a class="btn btn-secondary" th:href="@{/orders}">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
