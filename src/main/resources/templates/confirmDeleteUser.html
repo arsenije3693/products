@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+<h1>Confirm Delete</h1>
+
+<p>
+    Are you sure you want to delete user:
+    <b th:text="${user.username}"></b>?
+</p>
+
+<form th:action="@{/admin/users/delete}" method="post">
+    <input type="hidden" name="id" th:value="${user.id}"/>
+    <button type="submit">Yes, Delete</button>
+    <a th:href="@{/admin/users}">Cancel</a>
+</form>
+
+</body>
+</html>
