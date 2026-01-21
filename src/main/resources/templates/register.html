@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+    <div class="card">
+        <h1>Create Account</h1>
+        <p>Register to access the Products app.</p>
+
+        <form method="post" action="/register">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@example.com" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" required>
+
+            <button class="btn" type="submit">Register</button>
+        </form>
+
+        <p class="text-small">
+            Already have an account?
+            <a th:href="@{/login}">Login</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
