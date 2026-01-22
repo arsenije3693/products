@@ -10,7 +10,7 @@ import edu.brajovic.products.models.UserEntity;
 import edu.brajovic.products.models.UserModel;
 
 @Service
-public class UserDetailsService implements DataAccessInterface<UserModel>{
+public class UserDataService implements DataAccessInterface<UserModel>{
     @Autowired
     private UsersRepository usersRepository;
 
