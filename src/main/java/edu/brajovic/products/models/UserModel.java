@@ -1,31 +1,16 @@
 package edu.brajovic.products.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
-
-@Table("USERS")
-public class UserEntity {
-    @Id
-    @Column("ID")
+public class UserModel {
     private int id;
-
-    @Column("USERNAME")
     private String username;
-
-    @Column("PASSWORD")
     private String password;
-
-    @Column("ROLE")
     private String role;
-
-    @Column("ENABLED")
     private boolean enabled;
 
-    public UserEntity() {
+    public UserModel() {
     }
 
-    public UserEntity(int id, String username, String password, String role, boolean enabled) {
+    public UserModel(int id, String username, String password, String role, boolean enabled) {
         this.id = id;
         this.username = username;
         this.password = password;
