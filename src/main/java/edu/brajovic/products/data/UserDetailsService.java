@@ -20,6 +20,11 @@ public class UserDetailsService implements DataAccessInterface<UserModel>{
         return Mapper.toModel(entity);
     }
 
+    public UserModel getByUsername(String username) {
+        UserEntity entity = usersRepository.findByUsername(username);
+        return Mapper.toModel(entity);
+    }
+
     @Override
     public Iterable<UserModel> getAll() {
         ArrayList<UserModel> models = new ArrayList<>();
