@@ -10,14 +10,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import edu.brajovic.products.data.UserDataService;
-
 @Configuration
 public class SecurityConfig {
-    private UserDataService userDetailsService;
+    private CustomUserDetailsService customUserDetailsService;
     
-    public SecurityConfig(UserDataService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
+        this.customUserDetailsService = customUserDetailsService;
     }
 
     @Bean
@@ -36,7 +34,7 @@ public class SecurityConfig {
                 .defaultSuccessUrl("/products", true)
                 .permitAll()
             )
-            .userDetailsService(userDetailsService);
+            .userDetailsService(customUserDetailsService);
             return http.build();
     }
 
