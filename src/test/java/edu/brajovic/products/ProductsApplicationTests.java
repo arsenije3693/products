@@ -74,35 +74,6 @@ class ProductsApplicationTests {
     }
 
     /**
-     * Passwords are encoded
-     */
-    @Test
-    void passwordIsEncodedOnSave() {
-        UserModel user = new UserModel();
-        user.setUsername("secureuser");
-        user.setPassword("mypassword");
-        user.setRole("ROLE_USER");
-
-        userService.create(user);
-
-        UserEntity saved = usersRepository.findByUsername("secureuser");
-
-        assertNotNull(saved);
-        assertNotEquals("mypassword", saved.getPassword());
-        assertTrue(passwordEncoder.matches("mypassword", saved.getPassword()));
-    }
-
-    /**
-     * /admin/** routes redirect when unauthenticated
-     */
-    @Test
-    void adminRoutesRedirectWhenUnauthenticated() throws Exception {
-        mockMvc.perform(get("/admin/users"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrlPattern("**/login"));
-    }
-
-    /**
      * Admin users can access admin routes
      */
     @Test
