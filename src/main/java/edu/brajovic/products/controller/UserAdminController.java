@@ -35,11 +35,21 @@ public class UserAdminController {
     }
 
     @PostMapping("/edit")
-    public String editUser(@ModelAttribute("user") UserModel user)
-    {
-        userService.update(user);
-        return "redirect:/admin/users";
-    }
+public String editUser(@ModelAttribute("user") UserModel formUser) {
+
+    // Load existing user from DB
+    UserModel existingUser = userService.getById(formUser.getId());
+
+    // Update only editable fields
+    existingUser.setUsername(formUser.getUsername());
+    existingUser.setRole(formUser.getRole());
+
+    // Save updated user
+    userService.update(existingUser);
+
+    return "redirect:/admin/users";
+}
+
 
     @GetMapping("/delete/{id}")
     public String confirmDelete(@PathVariable int id, Model model) {
