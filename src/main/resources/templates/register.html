@@ -16,7 +16,7 @@
         <form th:action="@{/register}" th:object="${userModel}" method="post">
 
             <label>Email</label>
-            <input type="email" th:field="*{email}" required>
+            <input type="text" th:field="*{username}" required>
 
             <label>Password</label>
             <input type="password" th:field="*{password}" required>

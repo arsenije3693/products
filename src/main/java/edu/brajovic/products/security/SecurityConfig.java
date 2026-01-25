@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/login", "/register").permitAll()
+                .requestMatchers("/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
@@ -30,9 +30,10 @@ public class SecurityConfig {
             .formLogin((form) -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/products", true)
+                .defaultSuccessUrl("/orders", true)
                 .permitAll()
             )
+            .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll())
             .userDetailsService(customUserDetailsService);
             return http.build();
     }
