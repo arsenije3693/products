@@ -55,7 +55,7 @@ public String editUser(@ModelAttribute("user") UserModel formUser) {
     public String confirmDelete(@PathVariable int id, Model model) {
         UserModel user = userService.getById(id);
         model.addAttribute("user", user);
-        return "admin/deleteUser";
+        return "confirmDeleteUser";
     }
     
     @PostMapping("/delete")
