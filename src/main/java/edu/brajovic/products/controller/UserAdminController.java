@@ -24,7 +24,7 @@ public class UserAdminController {
             model.addAttribute("users", userService.getAll());
         } catch (Exception ex) {
             model.addAttribute("error", "Failed to load users. Please try again later.");
-            ex.printStackTrace(); // Use logger in real apps
+            ex.printStackTrace(); 
         }
         return "userAdmin";
     }
@@ -55,7 +55,7 @@ public class UserAdminController {
                 return "redirect:/admin/users";
             }
 
-            // Update editable fields
+            
             existingUser.setUsername(formUser.getUsername());
             existingUser.setRole(formUser.getRole());
 
