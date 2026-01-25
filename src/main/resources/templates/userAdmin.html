@@ -14,6 +14,34 @@
     <div class="card">
         <h1>User Administration</h1>
         <p>Admin-only user management page (backend coming later).</p>
+        <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="userModel : ${users}">
+            <td th:text="${userModel.id}">Id</td>
+            <td th:text="${userModel.username}">Username</td>
+            <td th:text="${userModel.role}">Role</td>
+            <td th:text="${userModel.enabled}">Enabled</td>
+
+            <td>
+                <a class="btn btn-sm btn-warning"
+                   th:href="@{/admin/users/edit/{id}(id=${userModel.id})}">Edit</a>
+
+                <a class="btn btn-sm btn-danger"
+                   th:href="@{/admin/users/delete/{id}(id=${userModel.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     </div>
 </div>
 
