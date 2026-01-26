@@ -70,7 +70,8 @@ public class AuthController {
 
         
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");
+        user.setRole("USER");
+        user.setEnabled(true);
 
         
         userService.create(user);

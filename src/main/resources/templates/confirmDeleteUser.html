@@ -2,20 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Confirm Delete</title>
+    <link rel="stylesheet" th:href="@{/app.css}">
 </head>
 <body>
-<h1>Confirm Delete</h1>
 
-<p>
-    Are you sure you want to delete user:
-    <b th:text="${user.username}"></b>?
-</p>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<form th:action="@{/admin/users/delete}" method="post">
-    <input type="hidden" name="id" th:value="${user.id}"/>
-    <button type="submit">Yes, Delete</button>
-    <a th:href="@{/admin/users}">Cancel</a>
-</form>
+<div class="container">
+    <div class="card">
+        <h1>Confirm Delete</h1>
+
+        <p>
+            Are you sure you want to delete user:
+            <b th:text="${user.username}"></b>?
+        </p>
+
+        <form th:action="@{/admin/users/delete}" method="post">
+            <input type="hidden" name="id" th:value="${user.id}"/>
+            <button class="btn" type="submit">Yes, Delete</button>
+            <a th:href="@{/admin/users}">Cancel</a>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

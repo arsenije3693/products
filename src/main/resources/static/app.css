@@ -30,14 +30,18 @@ p { margin: 0 0 14px; color:#b9c3d6; }
     padding:10px 14px;
     border-radius:12px;
     font-weight:600;
+    border:none;
+    cursor:pointer;
 }
 .btn:hover { filter: brightness(1.05); }
 
 .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-input {
+input, select {
     width:100%; padding:12px 12px;
     border-radius:12px;
     border:1px solid #2a3140;
     background:#0c0f16; color:#e9eef7;
 }
 label { font-size: 13px; color:#9fb0cc; display:block; margin: 12px 0 6px; }
+.text-small { font-size: 14px; }
+a { color:#2b6cff; }
