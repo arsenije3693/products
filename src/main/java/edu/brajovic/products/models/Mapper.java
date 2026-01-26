@@ -23,4 +23,26 @@ public class Mapper {
                 model.getQuantity()
         );
     }
+
+    public static UserModel toModel(UserEntity entity) {
+        if (entity == null) return null;
+        return new UserModel(
+                entity.getId(),
+                entity.getUsername(),
+                entity.getPassword(),
+                entity.getRole(),
+                entity.isEnabled()
+        );
+    }
+
+    public static UserEntity toEntity(UserModel model) {
+        if (model == null) return null;
+        return new UserEntity(
+                model.getId(),
+                model.getUsername(),
+                model.getPassword(),
+                model.getRole(),
+                model.isEnabled()
+        );
+    }
 }

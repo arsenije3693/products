@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Products App</title>
+    <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+    <div class="card">
+        <h1>Products App</h1>
+        <p>Temporary home page for frontend testing.</p>
+
+        <div class="grid">
+            <a class="btn" th:href="@{/login}">Login</a>
+            <a class="btn" th:href="@{/register}">Register</a>
+            <a class="btn" th:href="@{/admin/users}">User Admin</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
